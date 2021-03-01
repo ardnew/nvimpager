@@ -230,8 +230,13 @@ local function highlight()
 	  append = line:sub(cnum, cnum)
 	  if list and string.find("\xa0\x20\x2f \t", append, 1, true) ~= nil then
 	    syntax_id = syntax_id_whitespace
-	    if append == " " then append = listchars.space or append end
-	    if append == "\xa0" or append == "\x20\x2f" then
+	    if append == " " then
+	      if line:find("^ +$", cnum) ~= nil then
+		append = listchars.trail or listchars.space or append
+	      else
+		append = listchars.space or append
+	      end
+	    elseif append == "\xa0" or append == "\x20\x2f" then
 	      append = listchars.nbsp or append
 	    end
 	  else
