@@ -679,6 +679,13 @@ describe("lua functions", function()
       end)
     end)
   end)
+
+  describe("parse_listchars", function()
+    it("splits key value pairs at commas and keys and values at colons", function()
+      local actual = nvimpager._testable.parse_listchars("a:b,c:d,e:f")
+      assert.same({a="b", c="d", e="f"}, actual)
+    end)
+  end)
 end)
 
 describe("parent detection", function()

@@ -722,6 +722,7 @@ local nvimpager = {
     group2ansi = group2ansi,
     hexformat_rgb_numbers = hexformat_rgb_numbers,
     init_cat_mode = init_cat_mode,
+    parse_listchars = parse_listchars,
     replace_prefix = replace_prefix,
     split_predifined_terminal_color = split_predifined_terminal_color,
     split_rgb_number = split_rgb_number,
